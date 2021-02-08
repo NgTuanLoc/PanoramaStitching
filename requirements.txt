@@ -1,0 +1,8 @@
+numpy
+opencv-python==3.4.2.16
+opencv-contrib-python==3.4.2.16
+os
+imutils
+imageio
+argparse
+matplotlib
