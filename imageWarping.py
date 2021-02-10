@@ -11,7 +11,6 @@ from featureExtraction import detectAndDescribe
 from MatchingFeatures import matchKeyPointsBF, matchKeyPointsKNN
 from getHomography import *
 from imagesLoading import loadImg, constructArg
-from stitching import image_stitch
 import os
 
 

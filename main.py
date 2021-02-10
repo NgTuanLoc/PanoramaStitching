@@ -10,7 +10,7 @@ ratio = 0.75
 
 
 if(n==2):
-    fullpano,_,_,_=warpTwoImages(list_images[0],list_images[1])
+    fullpano,_,_,_=warpTwoImages(images[0],images[1])
 elif (n>2):
     mid=int(n/2+0.5)
     left=images[:mid]   # List of first image to middle image
@@ -35,12 +35,10 @@ elif (n>2):
     else:
         fullpano,_,_,_=warpTwoImages(right_pano,left_pano,descriptor=feature_extractor, ratio=ratio)
 
-outputFile = 'panoramaImage'
-fileName = 'outputs/'+outputFile+'.jpg'
-
+outputFile = '{}_{}_{}'.format(args['images'][6:], feature_extractor, matching_method)
 for i in range(100):
+    fileName = 'outputs/'+outputFile+'.jpg'
     if not os.path.isfile(fileName):
         cv2.imwrite(fileName, fullpano)
         break
-    fileName = 'outputs/{}_{}_{}_{}.jpg'.format(outputFile, feature_extractor, matching_method, i)
-    # fileName = 'outputs/'+outputFile+str(i)+++'.jpg'
+    fileName = 'outputs/'+outputFile+str(i)+'.jpg'

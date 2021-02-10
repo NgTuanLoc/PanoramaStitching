@@ -1,3 +1,4 @@
+# This module can stitching image but the output is less nice
 from featureExtraction import detectAndDescribe
 from MatchingFeatures import *
 from getHomography import *
@@ -26,7 +27,8 @@ def image_stitch(images, matching_method, feature_extractor):
 
         #to get perspective of image using computed homography
         (matches, H, status) = getHomography(KeypointsA, KeypointsB, featuresA, featuresB, matches, reprojThresh=4)
-        width = imageA.shape[1] + imageB.shape[1]
+        # Combination of two image shapes
+        width = imageA.shape[1] + imageB.shape[1] 
         height = imageA.shape[0] + imageB.shape[0]		
         result_image = cv2.warpPerspective(imageA, H, (width, height))
         result_image[0:imageB.shape[0], 0:imageB.shape[1]] = imageB

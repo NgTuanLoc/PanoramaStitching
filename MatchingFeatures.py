@@ -2,11 +2,13 @@ from imagesLoading import *
 
 def createMatcher(method,crossCheck):
     "Create and return a Matcher Object"
-    
+    # crossCheck which is false by default. If it is true, Matcher returns only those matches with value (i,j) such that i-th descriptor in set A has j-th descriptor in set B as the best match and vice-versa
     if method == 'sift' or method == 'surf':
         bf = cv2.BFMatcher(cv2.NORM_L2, crossCheck=crossCheck)
+    # NORM_L2: Euclidean distance
     elif method == 'orb' or method == 'brisk':
         bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=crossCheck)
+    # NORM_HAMMING: Hamming distance
     return bf
 
 
