@@ -42,9 +42,9 @@ if choice == 0:
     fullpano = fullpano[y:y + h, x:x + w]
 
 
-    outputFile = 'panoramaImage'
-    fileName = 'outputs/'+outputFile+'.jpg'
+    outputFile = '{}_{}_{}_method1'.format(args['images'][6:], feature_extractor, matching_method)
     for i in range(100):
+        fileName = 'outputs/'+outputFile+'.jpg'
         if not os.path.isfile(fileName):
             cv2.imwrite(fileName, fullpano)
             break
@@ -85,7 +85,7 @@ elif choice == 1:
         else:
             fullpano,_,_,_=warpTwoImages(right_pano,left_pano,descriptor=feature_extractor, ratio=ratio)
 
-    outputFile = '{}_{}_{}'.format(args['images'][6:], feature_extractor, matching_method)
+    outputFile = '{}_{}_{}_method2'.format(args['images'][6:], feature_extractor, matching_method)
     for i in range(100):
         fileName = 'outputs/'+outputFile+'.jpg'
         if not os.path.isfile(fileName):

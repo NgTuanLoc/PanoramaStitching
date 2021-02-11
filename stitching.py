@@ -30,6 +30,7 @@ def image_stitch(images, matching_method, feature_extractor):
         # Combination of two image shapes
         width = imageA.shape[1] + imageB.shape[1] 
         height = imageA.shape[0] + imageB.shape[0]		
+        
         result_image = cv2.warpPerspective(imageA, H, (width, height))
         result_image[0:imageB.shape[0], 0:imageB.shape[1]] = imageB
         return result_image
