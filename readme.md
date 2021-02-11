@@ -23,7 +23,12 @@ python main.py --images {images/images_folder} -d {descriptor} -m {matching meth
 - Put folder that contains your images into images folder
 - Descriptor : sift, surf, orb, brisk
 - Matching method : bf (brute force), knn (k-nearest neighbor)
-- Panorama result is in outputs folder
+- Panorama result is in outputs folder\
+  Example
+
+```python
+python main.py --images images/redrock -d orb -m bf
+```
 
 ## Reference
 
